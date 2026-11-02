@@ -2,6 +2,8 @@
 (function () {
   'use strict';
 
+  document.documentElement.classList.add('js');
+
   var ano = document.getElementById('ano');
   if (ano) ano.textContent = new Date().getFullYear();
 
@@ -43,8 +45,9 @@
       el.style.transitionDelay = (Math.min(i % 4, 3) * 70) + 'ms';
       io.observe(el);
     });
-  } else {
-    reveals.forEach(function (el) { el.classList.add('in'); });
+    setTimeout(function () {
+      reveals.forEach(function (el) { el.classList.add('in'); });
+    }, 2500);
   }
 
   var form = document.getElementById('form-contato');
